@@ -2,7 +2,6 @@ from django.test import TestCase
 from endpoints.models import Jeu
 from rest_framework import status
 from random import randint
-from rest_framework.test import APIClient
 
 
 class JeuTestCase(TestCase):
@@ -66,8 +65,7 @@ class JeuxAPITest(TestCase):
 
     def test_retrieve_jeu(self):
         jeu = Jeu.objects.filter(nom_jeu="Uno").first()
-        # print("RETRIEVE ===> ")
-        # print(jeu)
+        # print(jeu) # Le print s'exécute avant même l'execution de tests
         url = f'/api/jeux/{jeu.id}/'
         response = self.client.get(url)
 
