@@ -2,7 +2,7 @@
 Développement du backend de l'application avec mise en place du CRUD des jeux.
 Nous développerons de manière itérative chacun des EndPoint, de la manière suivante :  Développement du EndPoint Test du end point avec PostMan (ou service similaire) Création du Test Unitaire relatif au end point
 
-
+# Instructions d'installation
 
 
 # Tout d'abord ouvrez votre terminal et suivez les étapes suivantes:
@@ -10,7 +10,6 @@ Nous développerons de manière itérative chacun des EndPoint, de la manière s
 ```{sh}
 `py venv -m .env`
 ```
-
 
 # Lancement de l'environnement virtuel
 ```{sh}
@@ -66,3 +65,12 @@ http://127.0.0.1:8000/api/jeux/
 # Arrêter le serveur de développement 
 ctrl + c
 
+
+
+
+# Axes d'amélioration
+- Se relire après avoir écrit la documentation
+- Tester l'ordre des arguments pour une fonction donnée
+- Tester si les types de valeurs en entrée, sont acceptés
+- Tester si la taille de l'argument en entrée dépasse la limite accepté par la base de donnée
+- Tester le comportement d'une requête POST, si on entre des champs qui ne sont pas compris dans le modèle
