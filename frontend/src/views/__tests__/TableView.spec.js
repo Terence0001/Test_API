@@ -12,6 +12,8 @@ const mockGet = {
 
 // Spy sur la méthode 'get' de l'objet axios et renvoie une valeur résolue (mockGet) pour simuler une requête réussie
 vi.spyOn(axios, 'get').mockResolvedValue(mockGet)
+// fn va capturer l'appel à l'api et to permet de faire des callbakc dessus, à utiliser avec le serveur lancé
+// vi.fn(axios, 'get').mockResolvedValue(mockGet)
 // Définition d'un bloc de tests avec la description "Get all games"
 describe('Get all games', () => {
     // Définition d'un test avec la description "should return"
@@ -19,6 +21,5 @@ describe('Get all games', () => {
     const result = await GameService.getGames()
     expect(axios.get).toHaveBeenCalledOnce()
     expect(result.data).toHaveLength(2)
-   
   })
 })
