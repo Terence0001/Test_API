@@ -5,8 +5,8 @@ import { describe, it, expect, vi } from 'vitest'
 // TEST NON FONCTIONNEL
 const mockGet = {
   data: [
-    { id: '12', nombre_joueur: 10, nom_jeu: 'Monopoly', age: 20 },
-    { id: '13', nombre_joueur: 20, nom_jeu: 'Monopoly', age: 30 }
+    { id: 12, nombre_joueur: 10, nom_jeu: 'Monopoly', age: 20 },
+    { id: 13, nombre_joueur: 20, nom_jeu: 'Monopoly', age: 30 }
   ]
 }
 
@@ -18,9 +18,13 @@ vi.spyOn(axios, 'get').mockResolvedValue(mockGet)
 describe('Get games', () => {
     // Définition d'un test avec la description "should return"
   it('GET ALL', async () => {
-    const result = await GameService.getGames()
+    const data = await GameService.getGames()
     expect(axios.get).toHaveBeenCalledOnce()
-    expect(result.data).toHaveLength(2)
+    expect(data).toHaveLength(2)
   })
-  it('GET ONE')
+  it('GET ONE', async () => {
+    const result = await GameService.getGame(12)
+    expect(axios.get).toHaveBeenCalledOnce()
+    expect(result).toHaveLength(1)
+  })
 })
