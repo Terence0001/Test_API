@@ -35,7 +35,13 @@ const mockCreate = {
 }
 
 // Spy sur la méthode 'get' de l'objet axios et renvoie une valeur résolue (mockGet) pour simuler une requête réussie
-vi.spyOn(axios, 'get').mockResolvedValue(mockGet)
+vi.spyOn(axios, 'get').mockImplementation((url) => {
+    if (url === 'http://127.0.0.1:8000/api/jeux/1') {
+      return Promise.resolve(mockGetOne)
+    } else {
+        return Promise.resolve(mockGet)
+    }
+  })
 vi.spyOn(axios, 'delete').mockResolvedValue(mockDelete)
 vi.spyOn(axios, 'patch').mockResolvedValue(mockUpdate)
 vi.spyOn(axios, 'post').mockResolvedValue(mockCreate)
@@ -47,12 +53,12 @@ describe('Get games', () => {
     it('GET ALL', async () => {
         const data = await GameService.getGames()
         expect(axios.get).toHaveBeenCalledOnce()
-        expect(data).toHaveLength(2)
+        expect(data).toMatchObject(mockGet.data)
     })
     it('GET ONE', async () => {
-        const result = await GameService.getGame(1)// Appel à la méthode getGame() du service GameService avec l'ID 12
-        expect(axios.get).toHaveBeenCalled()
-        expect(result).toHaveLength(1)
+        const result = await GameService.getGame(1)
+        expect(axios.get).toHaveBeenCalledWith('http://127.0.0.1:8000/api/jeux/1')
+        expect(result).toMatchObject(mockGetOne.data)
     })
     it('DELETE', async () => {
         const result = await GameService.deleteGame(12)

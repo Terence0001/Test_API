@@ -17,6 +17,20 @@ const GameService = {
         throw error;
       });
     },
+
+    async getGame(id) {
+      return axios
+        .get(baseURL + '/jeux/' + id)
+        .then((response) => {
+          console.log('ONE', response.data)
+          return response.data
+        })
+        .catch(error => {
+          console.error(error);
+          throw error;
+        });
+      },
+
     // Méthode pour créer un nouveau jeu
     async createGame(game) {
       try {
