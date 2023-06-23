@@ -18,15 +18,15 @@ const GameService = {
       });
     },
     // Méthode pour créer un nouveau jeu
-    // async createGame(game) {
-    //   try {
-    //     const response = await axios.post(baseURL + '/jeux', game);
-    //     return response.data;
-    //   } catch (error) {
-    //     console.error(error);
-    //     throw error;
-    //   }
-    // },
+    async createGame(game) {
+      try {
+        const response = await axios.post(baseURL + '/jeux', game);
+        return response.data;
+      } catch (error) {
+        console.error(error);
+        throw error;
+      }
+    },
     
     async updateGame(id, game) {
       try {
