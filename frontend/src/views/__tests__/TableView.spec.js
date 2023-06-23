@@ -60,6 +60,7 @@ describe('Get games', () => {
         expect(result).not.toContain(12)
     })
     it('PATCH', async () => {
+        // Tester ce qui a été passé à Axios
         const result = await GameService.updateGame(12, {age:"+99"})
         expect(axios.patch).toHaveBeenCalledOnce()
         expect(result[0].age).toEqual("+99")
