@@ -3,7 +3,7 @@ import Mocks from '../../__mocks__/GameMock'
 import axios from 'axios'
 import { describe, it, expect, vi } from 'vitest'
 
-// Spy sur la méthode 'get' de l'objet axios et renvoie une valeur résolue (mockGet) pour simuler une requête réussie
+// //Spy sur la méthode 'get' de l'objet axios et renvoie une valeur résolue (mockGet) pour simuler une requête réussie
 vi.spyOn(axios, 'get').mockImplementation((url) => {
   if (url === GameService.baseURL + '1') {
     return Promise.resolve(Mocks.getOne)
