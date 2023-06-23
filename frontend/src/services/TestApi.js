@@ -30,19 +30,19 @@ const baseURL = 'http://127.0.0.1:8000/api'
       });
     },
     // Méthode pour créer un nouveau jeu
-    async createGame(game) {
-      try {
-        const response = await axios.post(baseURL + '/jeux', game);
-        return response.data;
-      } catch (error) {
-        console.error(error);
-        throw error;
-      }
-    },
+    // async createGame(game) {
+    //   try {
+    //     const response = await axios.post(baseURL + '/jeux', game);
+    //     return response.data;
+    //   } catch (error) {
+    //     console.error(error);
+    //     throw error;
+    //   }
+    // },
     
     async updateGame(id, game) {
       try {
-        const response = await axios.put(baseURL + '/jeux/' + id, game);
+        const response = await axios.patch(baseURL + '/jeux/' + id, game);
         return response.data;
       } catch (error) {
         console.error(error);
