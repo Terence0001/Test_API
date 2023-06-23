@@ -37,10 +37,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    'corsheaders',
-    "rest_framework",
-    "endpoints"
-    
+    "endpoints",
+    "rest_framework"
 ]
 
 MIDDLEWARE = [
@@ -54,33 +52,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "test_api.urls"
-
-# Liste des origines autorisées (par exemple : 'http://localhost:3000')
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000',
-    # Liste des origines autorisées
-]
-
-# Inclure les cookies dans les requêtes CORS
-CORS_ALLOW_CREDENTIALS = True
-
-# Liste des méthodes HTTP autorisées
-CORS_ALLOW_METHODS = [
-    'GET',
-    'POST',
-    'PUT',
-    'PATCH',
-    'DELETE',
-    'OPTIONS'
-]
-
-# Liste des en-têtes autorisés
-CORS_ALLOW_HEADERS = [
-    'Accept',
-    'Accept-Language',
-    'Content-Type',
-    'Authorization'
-]
 
 TEMPLATES = [
     {

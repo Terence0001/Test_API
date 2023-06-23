@@ -6,4 +6,4 @@ class Jeu(models.Model):
     age = models.CharField(max_length=20)
 
     def __str__(self):
-        return self.nom_jeu # Méthode qui retourne une représentation en chaîne du modèle (le nom du jeu)
+        return self.nom_jeu
